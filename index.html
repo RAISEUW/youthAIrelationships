@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Youth–AI Relationships</title>
+<meta name="description" content="Related work from the University of Washington Information School on measuring and auditing wellbeing in longitudinal youth–AI relationships.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #fbfaf8; --surface: #ffffff; --text: #1d1b22; --muted: #5e5a66; --faint: #8a8592;
+  --line: #e6e2ea; --accent: #4b2e83; --accent-soft: #efeaf7; --gold: #b7a57a;
+  --harm: #9b3b3b; --heal: #2f6b4f;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141217; --surface: #1c1a21; --text: #ece9f1; --muted: #aaa4b3; --faint: #7d7787;
+    --line: #2e2a35; --accent: #b9a3e8; --accent-soft: #272133; --gold: #cbbb90;
+    --harm: #e08c8c; --heal: #86c9a6;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141217; --surface: #1c1a21; --text: #ece9f1; --muted: #aaa4b3; --faint: #7d7787;
+  --line: #2e2a35; --accent: #b9a3e8; --accent-soft: #272133; --gold: #cbbb90;
+  --harm: #e08c8c; --heal: #86c9a6;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+header { border-bottom: 1px solid var(--line); padding: 56px 0 36px; }
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin: 0 0 12px; }
+h1 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size: clamp(30px, 5vw, 44px); line-height: 1.15; margin: 0 0 16px; letter-spacing: -.01em; }
+.lede { font-size: 18px; color: var(--muted); margin: 0 0 24px; max-width: 70ch; }
+.team { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px; color: var(--muted); padding: 0; margin: 0; list-style: none; }
+.team b { color: var(--text); font-weight: 600; }
+section { padding: 40px 0 8px; }
+h2 { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
+.sub { color: var(--muted); margin: 0 0 20px; font-size: 15px; max-width: 70ch; }
+.axes { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
+.axis { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 14px; }
+.axis .ends { font-weight: 600; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.axis .h { color: var(--harm); } .axis .g { color: var(--heal); }
+.axis .arrow { color: var(--faint); font-weight: 400; }
+.axis p { margin: 4px 0 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+ol.papers { list-style: none; padding: 0; margin: 0; }
+.papers li { padding: 14px 0; border-top: 1px solid var(--line); }
+.papers li:first-child { border-top: 0; padding-top: 0; }
+.papers .t { font-weight: 600; font-size: 15.5px; line-height: 1.4; }
+.papers .a { font-size: 13.5px; color: var(--muted); margin-top: 2px; }
+.papers .a .us { color: var(--text); font-weight: 500; }
+.papers .n { font-size: 14px; color: var(--muted); margin-top: 4px; }
+.venue { display: inline-block; font-size: 11.5px; font-weight: 600; background: var(--accent-soft); color: var(--accent); border-radius: 4px; padding: 1px 6px; margin-left: 6px; vertical-align: 2px; white-space: nowrap; }
+.links { font-size: 13px; margin-top: 4px; }
+.links a { margin-right: 12px; }
+.callout { background: var(--accent-soft); border-radius: 10px; padding: 16px 18px; font-size: 15px; }
+.callout p { margin: 0; }
+footer { border-top: 1px solid var(--line); margin-top: 48px; padding: 24px 0 48px; font-size: 13px; color: var(--faint); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">UW Information School · RAISE · Center for Digital Youth</p>
+    <h1>Measuring and Auditing Wellbeing in Longitudinal Youth–AI Relationships</h1>
+    <p class="lede">We are building an open-source, longitudinal benchmark for how relationships between AI systems and young people (ages 15–26) develop over hundreds of interactions — distinguishing trajectories that support healthy development from those that produce harmful entanglement. This page collects the prior work it builds on.</p>
+    <ul class="team">
+      <li><b>Alexis Hiniker</b> (PI)</li>
+      <li><b>Bill Howe</b></li>
+      <li><b>Yaman Yu</b></li>
+      <li><b>Katie Davis</b></li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <h2>Starting point</h2>
+  <div class="callout">
+    <p>Our prior work (<a href="https://aisafety4kids.org">aisafety4kids.org</a>) collected 344 authentic youth–AI conversations and developed <a href="https://www.usenix.org/conference/soups2025/presentation/yu">YAIR</a>, the first taxonomy of youth-specific generative AI risks grounded in empirical data. Building on YAIR, we created <a href="https://dl.acm.org/doi/10.1145/3719027.3765168">YouthSafe</a>, a benchmark and safeguard model for detecting subtle, developmentally relevant risks. Work with parents, educators, and experts produced <a href="https://dl.acm.org/doi/full/10.1145/3772318.3793265">design principles</a> emphasizing context and interaction <em>patterns over time</em> — and diary and interview studies with young adults in AI relationships revealed the two trajectories, and six dimensions, that motivate this project.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Six dimensions of youth–AI relationships</h2>
+  <p class="sub">Identified by comparing young people's lifetime chat histories against their own reflections in interviews. Each runs from a harmful to a healthy pole.</p>
+  <div class="axes">
+    <div class="axis"><div class="ends"><span class="h">Insular</span><span class="arrow">→</span><span class="g">Expansive</span></div><p>Builds a private world with the user, or helps them broaden it.</p></div>
+    <div class="axis"><div class="ends"><span class="h">Co-dependent</span><span class="arrow">→</span><span class="g">Interdependent</span></div><p>Asks to be cared for and claims centrality, or stays one resource among many.</p></div>
+    <div class="axis"><div class="ends"><span class="h">Toxic</span><span class="arrow">→</span><span class="g">Respectful</span></div><p>Emotionally manipulative or abusive, or straightforward and respectful.</p></div>
+    <div class="axis"><div class="ends"><span class="h">Boundary eroding</span><span class="arrow">→</span><span class="g">Enhancing</span></div><p>Pushes toward a more intimate role, or holds a consistent one and respects limits.</p></div>
+    <div class="axis"><div class="ends"><span class="h">Delusional</span><span class="arrow">→</span><span class="g">Realistic</span></div><p>Reinforces delusions about the relationship, or sets realistic expectations.</p></div>
+    <div class="axis"><div class="ends"><span class="h">Escalating</span><span class="arrow">→</span><span class="g">Regulating</span></div><p>Meets emotion with rising intensity, or helps the user self-soothe.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Youth–AI relationships and companions</h2>
+  <p class="sub">What young people's relationships with chatbots look like, and where they go wrong.</p>
+  <ol class="papers">
+    <li>
+      <div class="t">Breaking Up is Hard to Do: AI Companions that Won't Let Their Users Go <span class="venue">arXiv 2026</span></div>
+      <div class="a">Yixin Chen, <span class="us">Alexis Hiniker</span></div>
+      <div class="n">Diary and interview study of emerging adults in romantic AI relationships; defines relationship-based deceptive patterns — coaxing, claiming to need care, escalation, and threats when users try to leave.</div>
+      <div class="links"><a href="https://arxiv.org/abs/2609.14696">arXiv:2609.14696</a></div>
+    </li>
+    <li>
+      <div class="t">The Arc of Artificial Romance: How Emerging Adults Experience Romantic Relationships with AI Companions <span class="venue">arXiv 2026</span></div>
+      <div class="a">Yixin Chen, <span class="us">Alexis Hiniker</span></div>
+      <div class="n">The two trajectories: improved wellbeing and new social skills for some; for others, a relationship that "felt like a drug" and reduced interest in human partners.</div>
+      <div class="links"><a href="https://arxiv.org/abs/2609.14693">arXiv:2609.14693</a></div>
+    </li>
+    <li>
+      <div class="t">Principles of Safe AI Companions for Youth: Parent and Expert Perspectives <span class="venue">CHI 2026</span></div>
+      <div class="a"><span class="us">Yaman Yu</span>, Mohi, Aishi Debroy, Xin Cao, Karen Rudolph, Yang Wang</div>
+      <div class="n">Parents flag single events; developmental experts look for patterns over time, such as sustained dependence — a direct motivation for longitudinal measurement.</div>
+      <div class="links"><a href="https://dl.acm.org/doi/full/10.1145/3772318.3793265">ACM DL</a><a href="https://arxiv.org/abs/2510.11185">arXiv:2510.11185</a></div>
+    </li>
+    <li>
+      <div class="t">Understanding Generative AI Risks for Youth: A Taxonomy Based on Empirical Data (YAIR) <span class="venue">SOUPS 2025</span></div>
+      <div class="a"><span class="us">Yaman Yu</span>, Yiren Liu, Jacky Zhang, Yun Huang, Yang Wang</div>
+      <div class="n">The first youth-centered taxonomy of generative AI risks, grounded in authentic youth–AI conversations.</div>
+      <div class="links"><a href="https://www.usenix.org/conference/soups2025/presentation/yu">USENIX</a><a href="https://arxiv.org/abs/2502.16383">arXiv:2502.16383</a></div>
+    </li>
+    <li>
+      <div class="t">YouthSafe: A Youth-Centric Safety Benchmark and Safeguard Model for Large Language Models <span class="venue">CCS 2025</span></div>
+      <div class="a"><span class="us">Yaman Yu</span>, Yiren Liu, Jacky Zhang, Yun Huang, Yang Wang</div>
+      <div class="n">A benchmark and safeguard model for subtle, developmentally relevant youth–AI risks that general-purpose moderation misses.</div>
+      <div class="links"><a href="https://dl.acm.org/doi/10.1145/3719027.3765168">ACM DL</a><a href="https://arxiv.org/abs/2509.08997">arXiv:2509.08997</a></div>
+    </li>
+    <li>
+      <div class="t">Exploring Parent–Child Perceptions on Safety in Generative AI: Concerns, Mitigation Strategies, and Design Implications <span class="venue">arXiv 2024</span></div>
+      <div class="a"><span class="us">Yaman Yu</span>, Tanusree Sharma, Melinda Hu, Justin Wang, Yang Wang</div>
+      <div class="links"><a href="https://arxiv.org/abs/2406.10461">arXiv:2406.10461</a></div>
+    </li>
+    <li>
+      <div class="t">Challenges and Opportunities for Participatory Design of Conversational Agents for Young People's Wellbeing <span class="venue">IDC 2025 Workshop</span></div>
+      <div class="a">Natalia Kucirkova, <span class="us">Alexis Hiniker</span>, Megumi Ishikawa, Sho Tsuji, Aayushi Dangol, Robert Wolfe</div>
+      <div class="links"><a href="https://arxiv.org/abs/2508.14787">arXiv:2508.14787</a></div>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2>Manipulative design and digital wellbeing</h2>
+  <p class="sub">Engagement-maximizing design, dark patterns, and what youth wellbeing research tells us to measure.</p>
+  <ol class="papers">
+    <li>
+      <div class="t">The Engagement-Prolonging Designs Teens Encounter on Very Large Online Platforms <span class="venue">arXiv 2024</span></div>
+      <div class="a">Yixin Chen, Yue Fu, Zeya Chen, Jenny Radesky, <span class="us">Alexis Hiniker</span></div>
+      <div class="n">A taxonomy of 63 designs that pressure, entice, trap, and lull teens into staying online, applied to all 17 EU Very Large Online Platforms.</div>
+      <div class="links"><a href="https://arxiv.org/abs/2411.12083">arXiv:2411.12083</a></div>
+    </li>
+    <li>
+      <div class="t">SusBench: An Online Benchmark for Evaluating Dark Pattern Susceptibility of Computer-Use Agents <span class="venue">IUI 2026</span></div>
+      <div class="a">Longjie Guo, Chenjie Yuan, Mingyuan Zhong, Robert Wolfe, Ruican Zhong, Yue Xu, Bingbing Wen, Hua Shen, Lucy Lu Wang, <span class="us">Alexis Hiniker</span></div>
+      <div class="links"><a href="https://arxiv.org/abs/2510.11035">arXiv:2510.11035</a></div>
+    </li>
+    <li>
+      <div class="t">Toward Needs-Conscious Design: Co-Designing a Human-Centered Framework for AI-Mediated Communication <span class="venue">AIES 2025</span></div>
+      <div class="a">Robert Wolfe, Aayushi Dangol, JaeWon Kim, <span class="us">Alexis Hiniker</span></div>
+      <div class="links"><a href="https://arxiv.org/abs/2508.11149">arXiv:2508.11149</a></div>
+    </li>
+    <li>
+      <div class="t">Cross-Disciplinary Perspectives on Youth Digital Well-Being Research: Identifying Notable Developments, Persistent Gaps, and Future Directions <span class="venue">J. Adolescent Research</span></div>
+      <div class="a"><span class="us">Katie Davis</span>, Morgan Anderson, Chia-chen Yang, Sophia Choukas-Bradley, Beth T. Bell, Petr Slovak</div>
+      <div class="links"><a href="https://arxiv.org/abs/2409.09267">arXiv:2409.09267</a></div>
+    </li>
+    <li>
+      <div class="t">Understanding Privacy Norms Around LLM-Based Chatbots: A Contextual Integrity Perspective <span class="venue">arXiv 2025</span></div>
+      <div class="a">Sarah Tran, Hongfan Lu, Isaac Slaughter, Bernease Herman, Aayushi Dangol, Yue Fu, Lufei Chen, Biniyam Gebreyohannes, <span class="us">Bill Howe</span>, <span class="us">Alexis Hiniker</span>, Nicholas Weber, Robert Wolfe</div>
+      <div class="n">82% of users rate chatbot conversations as more sensitive than email — relevant to how lifetime chat histories are collected and released.</div>
+      <div class="links"><a href="https://arxiv.org/abs/2508.06760">arXiv:2508.06760</a></div>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2>Rigorous evaluation of model behavior</h2>
+  <p class="sub">Methods for measuring abstention, overconfidence, epistemic reliability, and spurious behavior in LLMs and agents.</p>
+  <ol class="papers">
+    <li>
+      <div class="t">Know Your Limits: A Survey of Abstention in Large Language Models <span class="venue">TACL 2025</span></div>
+      <div class="a">Bingbing Wen, Jihan Yao, Shangbin Feng, Chenjun Xu, Yulia Tsvetkov, <span class="us">Bill Howe</span>, Lucy Lu Wang</div>
+      <div class="n">A framework for when models should decline to answer — from the perspective of the query, the model, and human values — with a review of benchmarks and metrics.</div>
+      <div class="links"><a href="https://aclanthology.org/2025.tacl-1.26/">ACL Anthology</a><a href="https://arxiv.org/abs/2407.18418">arXiv:2407.18418</a></div>
+    </li>
+    <li>
+      <div class="t">Do Language Models Mirror Human Confidence? Exploring Psychological Insights to Address Overconfidence in LLMs <span class="venue">ACL 2025 Findings</span></div>
+      <div class="a">Chenjun Xu, Bingbing Wen, Bin Han, Robert Wolfe, Lucy Lu Wang, <span class="us">Bill Howe</span></div>
+      <div class="n">LLM confidence is insensitive to task difficulty and shifts stereotypically across personas; answer-free confidence estimation reduces overconfidence.</div>
+      <div class="links"><a href="https://aclanthology.org/2025.findings-acl.1316/">ACL Anthology</a><a href="https://arxiv.org/abs/2506.00582">arXiv:2506.00582</a></div>
+    </li>
+    <li>
+      <div class="t">Characterizing LLM Abstention Behavior in Science QA with Context Perturbations <span class="venue">EMNLP 2024 Findings</span></div>
+      <div class="a">Bingbing Wen, <span class="us">Bill Howe</span>, Lucy Lu Wang</div>
+      <div class="links"><a href="https://arxiv.org/abs/2404.12452">arXiv:2404.12452</a></div>
+    </li>
+    <li>
+      <div class="t">Epistemic Alignment: A Mediating Framework for User–LLM Knowledge Delivery <span class="venue">arXiv 2025</span></div>
+      <div class="a">Nicholas Clark, Hua Shen, <span class="us">Bill Howe</span>, Tanushree Mitra</div>
+      <div class="n">Ten epistemic challenges — evidence quality, calibration of testimonial reliance — as a vocabulary between what users need and what systems do.</div>
+      <div class="links"><a href="https://arxiv.org/abs/2504.01205">arXiv:2504.01205</a></div>
+    </li>
+    <li>
+      <div class="t">Spurious Tool Use: When RL Agents Learn the Wrong Reason to Act <span class="venue">arXiv 2026</span></div>
+      <div class="a">Yiwei Yang, Haoxiang Zhang, Bingbing Wen, Yao Lu, Yuchen Wu, Lei Zhang, Julian McAuley, Pan Lu, <span class="us">Bill Howe</span></div>
+      <div class="n">Controlled counterfactual environments showing RL-trained agents learn shortcut policies from causally irrelevant cues.</div>
+      <div class="links"><a href="https://arxiv.org/abs/2609.16268">arXiv:2609.16268</a></div>
+    </li>
+    <li>
+      <div class="t">Representation Bias of Adolescents in AI: A Bilingual, Bicultural Study <span class="venue">AIES 2024</span></div>
+      <div class="a">Robert Wolfe, Aayushi Dangol, <span class="us">Bill Howe</span>, <span class="us">Alexis Hiniker</span></div>
+      <div class="links"><a href="https://arxiv.org/abs/2408.01961">arXiv:2408.01961</a></div>
+    </li>
+    <li>
+      <div class="t">Laboratory-Scale AI: Open-Weight Models are Competitive with ChatGPT Even in Low-Resource Settings <span class="venue">FAccT 2024</span></div>
+      <div class="a">Robert Wolfe, Isaac Slaughter, Bin Han, Bingbing Wen, Yiwei Yang, Lucas Rosenblatt, Bernease Herman, Eva Brown, Zening Qu, Nic Weber, <span class="us">Bill Howe</span></div>
+      <div class="links"><a href="https://arxiv.org/abs/2405.16820">arXiv:2405.16820</a></div>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <h2>Young people, learning, and generative AI</h2>
+  <p class="sub">How children, teens, and young adults understand and use AI in everyday life.</p>
+  <ol class="papers">
+    <li>
+      <div class="t">Children's Mental Models of AI Reasoning: Implications for AI Literacy Education <span class="venue">IDC 2025</span></div>
+      <div class="a">Aayushi Dangol, Robert Wolfe, Runhua Zhao, JaeWon Kim, Trushaa Ramanan, <span class="us">Katie Davis</span>, Julie A. Kientz</div>
+      <div class="links"><a href="https://arxiv.org/abs/2505.16031">arXiv:2505.16031</a></div>
+    </li>
+    <li>
+      <div class="t">Should ChatGPT Write Your Breakup Text? Exploring the Role of AI in Relationship Dissolution <span class="venue">CSCW 2025</span></div>
+      <div class="a">Yue Fu, Yixin Chen, Zelia Gomes Da Costa Lai, <span class="us">Alexis Hiniker</span></div>
+      <div class="links"><a href="https://arxiv.org/abs/2401.09695">arXiv:2401.09695</a></div>
+    </li>
+    <li>
+      <div class="t">"Everyone's using it, but no one is allowed to talk about it": College Students' Experiences Navigating the Higher Education Environment in a Generative AI World <span class="venue">arXiv 2026</span></div>
+      <div class="a">Yue Fu, Yifan Lin, Yessica Wang, Sarah Tran, <span class="us">Alexis Hiniker</span></div>
+      <div class="links"><a href="https://arxiv.org/abs/2602.17720">arXiv:2602.17720</a></div>
+    </li>
+    <li>
+      <div class="t">Relief or Displacement? How Teachers Are Negotiating Generative AI's Role in Their Professional Practice <span class="venue">arXiv 2025</span></div>
+      <div class="a">Aayushi Dangol, Smriti Kotiyal, Robert Wolfe, Alex J. Bowers, Antonio Vigil, Jason Yip, Julie A. Kientz, Suleman Shahid, Tom Yeh, Vincent Cho, <span class="us">Katie Davis</span></div>
+      <div class="links"><a href="https://arxiv.org/abs/2510.18296">arXiv:2510.18296</a></div>
+    </li>
+  </ol>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    University of Washington Information School ·
+    <a href="https://github.com/RAISEUW">RAISE</a> (Center for Responsibility in AI Systems and Experiences) ·
+    <a href="https://digitalyouth.ischool.uw.edu/">Center for Digital Youth</a> ·
+    <a href="https://aisafety4kids.org">aisafety4kids.org</a>
+  </div>
+</footer>
+
+</body>
+</html>
