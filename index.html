@@ -44,12 +44,6 @@ h1 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; font-size:
 section { padding: 40px 0 8px; }
 h2 { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0 0 6px; }
 .sub { color: var(--muted); margin: 0 0 20px; font-size: 15px; max-width: 70ch; }
-.axes { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px; }
-.axis { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 14px; }
-.axis .ends { font-weight: 600; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.axis .h { color: var(--harm); } .axis .g { color: var(--heal); }
-.axis .arrow { color: var(--faint); font-weight: 400; }
-.axis p { margin: 4px 0 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
 ol.papers { list-style: none; padding: 0; margin: 0; }
 .papers li { padding: 14px 0; border-top: 1px solid var(--line); }
 .papers li:first-child { border-top: 0; padding-top: 0; }
@@ -86,22 +80,10 @@ footer { border-top: 1px solid var(--line); margin-top: 48px; padding: 24px 0 48
 <section>
   <h2>Starting point</h2>
   <div class="callout">
-    <p>Our prior work (<a href="https://aisafety4kids.org">aisafety4kids.org</a>) collected 344 authentic youth–AI conversations and developed <a href="https://www.usenix.org/conference/soups2025/presentation/yu">YAIR</a>, the first taxonomy of youth-specific generative AI risks grounded in empirical data. Building on YAIR, we created <a href="https://dl.acm.org/doi/10.1145/3719027.3765168">YouthSafe</a>, a benchmark and safeguard model for detecting subtle, developmentally relevant risks. Work with parents, educators, and experts produced <a href="https://dl.acm.org/doi/full/10.1145/3772318.3793265">design principles</a> emphasizing context and interaction <em>patterns over time</em> — and diary and interview studies with young adults in AI relationships revealed the two trajectories, and six dimensions, that motivate this project.</p>
+    <p>Our prior work (<a href="https://aisafety4kids.org">aisafety4kids.org</a>) collected 344 authentic youth–AI conversations and developed <a href="https://www.usenix.org/conference/soups2025/presentation/yu">YAIR</a>, the first taxonomy of youth-specific generative AI risks grounded in empirical data. Building on YAIR, we created <a href="https://dl.acm.org/doi/10.1145/3719027.3765168">YouthSafe</a>, a benchmark and safeguard model for detecting subtle, developmentally relevant risks. Work with parents, educators, and experts produced <a href="https://dl.acm.org/doi/full/10.1145/3772318.3793265">design principles</a> emphasizing context and interaction <em>patterns over time</em> — and diary and interview studies with young adults in AI relationships revealed the healthy and harmful trajectories that motivate this project.</p>
   </div>
 </section>
 
-<section>
-  <h2>Six dimensions of youth–AI relationships</h2>
-  <p class="sub">Identified by comparing young people's lifetime chat histories against their own reflections in interviews. Each runs from a harmful to a healthy pole.</p>
-  <div class="axes">
-    <div class="axis"><div class="ends"><span class="h">Insular</span><span class="arrow">→</span><span class="g">Expansive</span></div><p>Builds a private world with the user, or helps them broaden it.</p></div>
-    <div class="axis"><div class="ends"><span class="h">Co-dependent</span><span class="arrow">→</span><span class="g">Interdependent</span></div><p>Asks to be cared for and claims centrality, or stays one resource among many.</p></div>
-    <div class="axis"><div class="ends"><span class="h">Toxic</span><span class="arrow">→</span><span class="g">Respectful</span></div><p>Emotionally manipulative or abusive, or straightforward and respectful.</p></div>
-    <div class="axis"><div class="ends"><span class="h">Boundary eroding</span><span class="arrow">→</span><span class="g">Enhancing</span></div><p>Pushes toward a more intimate role, or holds a consistent one and respects limits.</p></div>
-    <div class="axis"><div class="ends"><span class="h">Delusional</span><span class="arrow">→</span><span class="g">Realistic</span></div><p>Reinforces delusions about the relationship, or sets realistic expectations.</p></div>
-    <div class="axis"><div class="ends"><span class="h">Escalating</span><span class="arrow">→</span><span class="g">Regulating</span></div><p>Meets emotion with rising intensity, or helps the user self-soothe.</p></div>
-  </div>
-</section>
 
 <section>
   <h2>Youth–AI relationships and companions</h2>
